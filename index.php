@@ -77,14 +77,7 @@
           </div>
         </div>
       </div> 
-      <!--<div class="item">
-        <div class="slider-banner" ><img src="images/cloudzon-banner -4.jpg" alt="" title=""> </div>
-        <div class="container">
-          <div class="text-block">
-            <p>Build your dream application today</p>
-          </div>
-        </div>
-      </div>-->  
+       
       
     </div>
   </div>
