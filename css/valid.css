@@ -1,0 +1,26 @@
+span.form-error.help-block{
+    color: red;
+    display: block;
+    margin-top: -6px;
+    padding-left: 0;
+}	
+element.style{
+    border-color: red;
+}
+input.error {
+    background: #ffebef url("../images/icon-fail.png") no-repeat scroll right center;
+    color: #480000;
+}
+input.valid {
+    background: #e3ffe5 url("../images/icon-ok.png") no-repeat scroll right center;
+    border-color: #96b796 !important;
+    color: #002f00;
+}
+textarea.error {
+	border-color: red;
+	color: #480000;
+}
+textarea.valid {
+    border-color: #96b796 !important;
+    color: #002f00;
+}
