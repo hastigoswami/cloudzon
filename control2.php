@@ -32,5 +32,6 @@
 		$resumeData=$obj2->show_resume($conn);
 		$enqData=$obj2->show_enq($conn);
 		$contactData=$obj2->show_contact_us($conn);
+        $itranscript_data=$obj2->show_itranscript_data($conn);
 	}
 ?>

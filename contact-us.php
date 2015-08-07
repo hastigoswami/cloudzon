@@ -284,7 +284,7 @@ $("form#form1").submit(function(e) {
 				  title: "Success!",
 				  text: data['message'],
 				  confirmButtonText: "okey!",
-				 closeOnConfirm: true,
+				 closeOnConfirm: true
 				},
 					function(isConfirm)
 					{
@@ -310,7 +310,7 @@ $("form#form1").submit(function(e) {
 				  title: "Error!",
 				  text: data['message'],
 				  confirmButtonText: "okey!",
-				 closeOnConfirm: true,
+				 closeOnConfirm: true
 				},
 					function(isConfirm)
 					{
@@ -343,7 +343,7 @@ $("form#frmsub").submit(function(e) {
 			dataType: 'json',
 			data: 
 			{
-				"email_address":$("#email_address").val(),
+				"email_address":$("#email_address").val()
 			},
 			beforeSend: function(){
 				$('#loading_image_sub').show();
@@ -359,7 +359,7 @@ $("form#frmsub").submit(function(e) {
 				  title: "Success!",
 				  text: data['message'],
 				  confirmButtonText: "okey!",
-				 closeOnConfirm: true,
+				 closeOnConfirm: true
 				},
 					function(isConfirm)
 					{

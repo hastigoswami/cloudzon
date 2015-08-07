@@ -384,6 +384,14 @@ class model
 		$data=mysqli_query($conn,$sql);
 		return $data;
 	}
+
+
+    public function show_itranscript_data($conn)
+    {
+        $sql="select * from itranscript";
+        $data=mysqli_query($conn,$sql);
+        return $data;
+    }
 	
 	
 	

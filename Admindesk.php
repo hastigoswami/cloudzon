@@ -66,10 +66,21 @@
 								<?php
 									include('contactTable.php');
 								?>
-							
 						</article>
 					</div>
-					<div id="tab-4" class="tab">
+                    <div id="tab-4" class="tab">
+                        <article>
+                            <div class="text-section">
+                                <h1 align="center">Itranscript data</h1>
+                            </div>
+                            <br><br><br>
+
+                            <?php
+                                include('itranscriptTable.php');
+                            ?>
+                        </article>
+                    </div>
+					<div id="tab-5" class="tab">
 						<article>
 							<div class="text-section">
 								<h1 align="center">Add Blog</h1>
@@ -124,6 +135,8 @@ $(document).ready(function() {
 	$('#example2').dataTable( {
 	} );
 	$('#example3').dataTable( {
+	} );
+	$('#example4').dataTable( {
 	} );
 } );
 </script>

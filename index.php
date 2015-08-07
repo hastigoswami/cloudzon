@@ -77,7 +77,7 @@
           </div>
         </div>
       </div> 
-       
+
       
     </div>
   </div>
@@ -207,8 +207,7 @@
 </section>
 
 <div class="clear"></div>
-</section>
-<div class="clear"><!----></div>
+    <div class="clear"><!----></div>
 
 <!-- footer part html -->
 <footer>

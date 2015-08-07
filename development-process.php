@@ -67,7 +67,7 @@
 	<div class="text-middle"><i><img src="images/oportunity-icon.png"></i>Opportunity assessment</div>
 	</div>
 
-	<div class="tright "><span>Happens to be the first phase, where we conduct due diligence with focused approach by project managers and stake holders. Requirements are determined, who & how the system/application/software will be used is assessed. These details are then analyzed for validity, followed with implementation and viability possibilities.</span></div>
+	<div class="tright "><span>In the first phase we conduct due diligence with a focused approach by project managers and stake holders. We determine the task requirements, how the system/application/software will be used and assess the target demographics. These details are then analyzed, followed BY implementation and viability testing.</span></div>
 	</li>
     <li class="even">
 	<div class="tleft">
@@ -145,7 +145,7 @@ $("form#frmsub").submit(function(e) {
 			dataType: 'json',
 			data: 
 			{
-				"email_address":$("#email_address").val(),
+				"email_address":$("#email_address").val()
 			},
 			beforeSend: function(){
 				$('#loading_image_sub').show();
@@ -161,7 +161,7 @@ $("form#frmsub").submit(function(e) {
 				  title: "Success!",
 				  text: data['message'],
 				  confirmButtonText: "okey!",
-				 closeOnConfirm: true,
+				 closeOnConfirm: true
 				},
 					function(isConfirm)
 					{

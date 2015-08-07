@@ -70,7 +70,7 @@
   <section class="content-area">
     <div class="who-we-block">
       <div class="container">
-        <h1>We channel individual abilities towards organization’s goals that enable us to deliver solutions surpassing client expectations. The CloudZon team comprises of talented experts with amazing potential to serve the best in the industry.</h1>
+        <h1>We channel individual abilities towards organization’s goals that enable us to deliver solutions surpassing client expectations. The CloudZon team is comprised of talented experts with amazing potential to serve the best in the industry.</h1>
    
       <div class="team-image-block">
         <figure><img src="images/team-image1.png" alt="" title=""></figure>
@@ -115,7 +115,7 @@ $("form#frmsub").submit(function(e) {
 			dataType: 'json',
 			data: 
 			{
-				"email_address":$("#email_address").val(),
+				"email_address":$("#email_address").val()
 			},
 			beforeSend: function(){
 				$('#loading_image_sub').show();
@@ -131,7 +131,7 @@ $("form#frmsub").submit(function(e) {
 				  title: "Success!",
 				  text: data['message'],
 				  confirmButtonText: "okey!",
-				 closeOnConfirm: true,
+				 closeOnConfirm: true
 				},
 					function(isConfirm)
 					{

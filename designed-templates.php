@@ -36,15 +36,47 @@
   <div class="modal-body">
     <div class="form-popup-one cf">
       <h1>Buy Now</h1>
-      <form id="deginform">
+      <form id="deginform" method="post">
         <div class="left">
           <input type="text" placeholder="Your Name" class="input-style" id="name" name="name" data-validation="required" data-validation-error-msg-container="#required-error-dialog">
           <input type="text" placeholder="Contact Number" class="input-style" id="contact" name="qualif" data-validation="required" data-validation-error-msg-container="#required-error-dialog">
           <input type="text" placeholder="Email" class="input-email" id="email" name="email" data-validation="email"  data-validation-error-msg-container="#email-error-dialog">
 
           <input class="submit" type="submit" value="submit">
+
           <em id="loading_image" class="ajax-loader" style="display:none;"><img src="images/ajax-loader.gif" alt="loader"></em> </div>
       </form>
+
+      <form method="POST" id="payment-form" style="display: none;">
+            <span class="payment-errors"></span>
+
+            <div class="form-row">
+                <label>
+                    <span>Card Number</span>
+                    <input type="text" size="20" data-stripe="number" class="input-style"/>
+                </label>
+            </div>
+
+            <div class="form-row">
+                <label>
+                    <span>CVC</span>
+                    <input type="text" size="4" data-stripe="cvc" class="input-style"/>
+                </label>
+            </div>
+
+            <div class="form-row">
+                <label>
+                    <span>Expiration (MM/YYYY)</span>
+                    <input type="text" size="2" data-stripe="exp-month" class="input-style"/>
+                </label>
+                <span> / </span>
+                <label>
+                    <input type="text" size="4" data-stripe="exp-year" class="input-style"/>
+                </label>
+            </div>
+
+            <button type="submit" class="submit">Submit Payment</button>
+        </form>
     </div>
   </div>
 </div>
@@ -184,9 +216,16 @@
 <script src="js/sweetalert-dev.js"></script>
 <script>  
 $(function() {
-$("form#deginform").submit(function(e) {
-	var isValid = $('#deginform').isValid();
+$("form#deginform").submit(function() {
+	var isValid =$('#deginform').isValid();
+    var isNot='null';
+
+
     if(isValid) {
+        $("#deginform").hide();
+        $("#payment-form").show();
+    }
+    if(isNot=='1') {
 		$.ajax({
 			url :'MVC/buy_temp.php',
 			type : 'POST',
@@ -204,7 +243,7 @@ $("form#deginform").submit(function(e) {
 				  title: "Success!",
 				  text: data['message'],
 				  confirmButtonText: "okey!",
-				 closeOnConfirm: true,
+				 closeOnConfirm: true
 				},
 					function(isConfirm)
 					{
@@ -230,7 +269,7 @@ $("form#deginform").submit(function(e) {
 				  title: "Error!",
 				  text: data['message'],
 				  confirmButtonText: "okey!",
-				 closeOnConfirm: true,
+				 closeOnConfirm: true
 				},
 					function(isConfirm)
 					{
@@ -250,7 +289,7 @@ $("form#deginform").submit(function(e) {
 </script>
 <script>  
 $(function() {
-$("form#frmsub").submit(function(e) {
+$("form#frmsub").submit(function() {
 	var isValid = $('#frmsub').isValid();
     if(isValid) {
 			
@@ -260,7 +299,7 @@ $("form#frmsub").submit(function(e) {
 			dataType: 'json',
 			data: 
 			{
-				"email_address":$("#email_address").val(),
+				"email_address":$("#email_address").val()
 			},
 			beforeSend: function(){
 				$('#loading_image_sub').show();
@@ -276,7 +315,7 @@ $("form#frmsub").submit(function(e) {
 				  title: "Success!",
 				  text: data['message'],
 				  confirmButtonText: "okey!",
-				 closeOnConfirm: true,
+				 closeOnConfirm: true
 				},
 					function(isConfirm)
 					{
@@ -310,10 +349,11 @@ var appendthis =  ("<div class='modal-overlay js-modal-close'></div>");
 	});  
   
   
-$(".js-modal-close, .modal-overlay").click(function() {
+$(".js-modal-close, .modal-overlay").click(function(e) {
     $(".modal-box, .modal-overlay").fadeOut(500, function() {
         $(".modal-overlay").remove();
 		 $("#deginform").trigger('reset');
+        e.preventDefault();
     });
  
 });
@@ -328,14 +368,36 @@ $(window).resize(function() {
 $(window).resize();
  
 });
-
-
-
 </script>
+
+
+
+<script type="text/javascript">
+    // This identifies your website in the createToken call below
+    Stripe.setPublishableKey('pk_test_aet9mfTs4Pe5PqT8Rt6E1z52');
+    // ...
+
+jQuery(function($) {
+$('#payment-form').submit(function(event) {
+var $form = $(this);
+
+// Disable the submit button to prevent repeated clicks
+$form.find('button').prop('disabled', true);
+
+Stripe.card.createToken($form, stripeResponseHandler);
+
+// Prevent the form from submitting with the default action
+return false;
+});
+});
+</script>
+
+
 <script>
   $.validate();
 </script>
 <script type='text/javascript' src='js/snap.svg-min.js'></script>
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 <script>
 $(document).ready(function(){
     $('#port').addClass("");
